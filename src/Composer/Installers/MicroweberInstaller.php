@@ -52,6 +52,9 @@ class MicroweberInstaller extends BaseInstaller
 
     protected function inflectTemplateVars($vars)
     {
+        
+        var_dump($vars);
+        die();
         $vars['name'] = preg_replace('/-template$/', '', $vars['name']);
         $vars['name'] = preg_replace('/template-$/', '', $vars['name']);
 
