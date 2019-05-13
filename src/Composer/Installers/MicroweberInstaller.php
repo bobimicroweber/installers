@@ -11,7 +11,7 @@ class MicroweberInstaller extends BaseInstaller
         'vendor'      => 'vendor/{$name}/',
         'components'  => 'components/{$name}/'
     );
-
+    
     /**
      * Format package name.
      *
@@ -46,69 +46,72 @@ class MicroweberInstaller extends BaseInstaller
         if ($vars['type'] === 'microweber-element' or $vars['type'] === 'microweber-elements') {
             return $this->inflectElementVars($vars);
         }
-
+        
         return $vars;
     }
-
+    
     protected function inflectTemplateVars($vars)
     {
+        /*
+         * $this->package->getTargetDir()
+         * This will be return target dir
+         *
+         */
         
-        var_dump($vars);
-        die();
         $vars['name'] = preg_replace('/-template$/', '', $vars['name']);
         $vars['name'] = preg_replace('/template-$/', '', $vars['name']);
-
+        
         return $vars;
     }
-
+    
     protected function inflectTemplatesVars($vars)
     {
         $vars['name'] = preg_replace('/-templates$/', '', $vars['name']);
         $vars['name'] = preg_replace('/templates-$/', '', $vars['name']);
-
+        
         return $vars;
     }
-
+    
     protected function inflectCoreVars($vars)
     {
         $vars['name'] = preg_replace('/-providers$/', '', $vars['name']);
         $vars['name'] = preg_replace('/-provider$/', '', $vars['name']);
         $vars['name'] = preg_replace('/-adapter$/', '', $vars['name']);
-
+        
         return $vars;
     }
-
+    
     protected function inflectModuleVars($vars)
     {
         $vars['name'] = preg_replace('/-module$/', '', $vars['name']);
         $vars['name'] = preg_replace('/module-$/', '', $vars['name']);
-
+        
         return $vars;
     }
-
+    
     protected function inflectModulesVars($vars)
     {
         $vars['name'] = preg_replace('/-modules$/', '', $vars['name']);
         $vars['name'] = preg_replace('/modules-$/', '', $vars['name']);
-
+        
         return $vars;
     }
-
+    
     protected function inflectSkinVars($vars)
     {
         $vars['name'] = preg_replace('/-skin$/', '', $vars['name']);
         $vars['name'] = preg_replace('/skin-$/', '', $vars['name']);
-
+        
         return $vars;
     }
-
+    
     protected function inflectElementVars($vars)
     {
         $vars['name'] = preg_replace('/-elements$/', '', $vars['name']);
         $vars['name'] = preg_replace('/elements-$/', '', $vars['name']);
         $vars['name'] = preg_replace('/-element$/', '', $vars['name']);
         $vars['name'] = preg_replace('/element-$/', '', $vars['name']);
-
+        
         return $vars;
     }
 }
